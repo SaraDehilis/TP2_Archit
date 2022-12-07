@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 
 public interface IEtudiant {
 	
@@ -47,5 +48,7 @@ public interface IEtudiant {
 
 
 	public void setPwd(String pwd);
+	
+	public void ajouterBonus() throws SQLException;
 
 }

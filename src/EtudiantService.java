@@ -54,6 +54,12 @@ public ArrayList<IEtudiant> GetEtudiantParUniversitye()
 	return new ArrayList<>(4);
 }
 
+public void ajouterBonus() throws SQLException {
+	for(IEtudiant e : this.GetEtudiantParUniversitye()) {
+		e.ajouterBonus();
+	}
+}
+
 public ArrayList<IEtudiant> GetEtudiatparLivreEmprunte()
 {
     //...

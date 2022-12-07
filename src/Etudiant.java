@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 
 public class Etudiant implements IEtudiant {
 
@@ -59,6 +60,20 @@ public class Etudiant implements IEtudiant {
 
 		public void setEmail(String email) {
 			this.email = email;
+		}
+		
+       public void ajouterBonus() throws SQLException  {
+			
+			IUniversiteRepository r = new UniversiteRepository();
+			if (r.GetById(id_universite).getPack() == TypePackage.Standard)
+		     {
+				this.nbLivreMensuel_Autorise = this.nbLivreMensuel_Autorise+5;
+		     }
+		     else if (r.GetById(id_universite).getPack() == TypePackage.Premium)
+		     {
+		    	this.nbLivreMensuel_Autorise = this.nbLivreMensuel_Autorise+10;
+		     }
+			
 		}
 
 
