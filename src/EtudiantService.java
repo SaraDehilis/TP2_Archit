@@ -16,7 +16,9 @@ public class EtudiantService {
 	    Journal j = new JournalDirect();
 	    j.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 	    
-	    if(email == null || email.length() == 0)
+        EmailValide e = new EmailValide();
+	    
+	    if(!e.valide(email))
 	    {
 	    	return false;
 	    }
@@ -33,14 +35,8 @@ public class EtudiantService {
 		
 		
 		
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
+        NombreLivres nb = new NombreLivres();	
+		stud.setNbLivreMensuel_Autorise(nb.getNbLivres(univ));                          
 	     
 		 StudRep.add(stud);
 		 j.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
