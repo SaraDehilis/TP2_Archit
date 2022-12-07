@@ -17,10 +17,11 @@ public class EtudiantRepository implements IEtudiantRepository {
 		String sql = "INSERT into etudiant values (" + E.getMatricule() + ",'" + E.getNom() + "','" + E.getPrenom() + "','" + E.getEmail() + "'," +E.getNbLivreMensuel_Autorise() + "," +E.getNbLivreEmprunte() + "," +E.getId_universite()+")";
 		int rs = stmt.executeUpdate(sql);
 		
-		if (rs == 1){
-				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+		Journal j = new JournalDirect();
+		if (rs == 1){ 
+			 j.outPut_Msg("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
-				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+				j.outPut_Msg("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
 	 }
