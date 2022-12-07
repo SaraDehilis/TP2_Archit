@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService {
+public abstract class EtudiantService {
 	
 	
 	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
@@ -35,8 +35,7 @@ public class EtudiantService {
 		
 		
 		
-        NombreLivres nb = new NombreLivres();	
-		stud.setNbLivreMensuel_Autorise(nb.getNbLivres(univ));                          
+		stud.setNbLivreMensuel_Autorise(NbLivres());                          
 	     
 		 StudRep.add(stud);
 		 j.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
@@ -45,7 +44,7 @@ public class EtudiantService {
 		
 	}
 	
-	
+	abstract int NbLivres();
 	
 
 public ArrayList<IEtudiant> GetEtudiantParUniversitye()
