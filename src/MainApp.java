@@ -6,7 +6,7 @@ public class MainApp {
 		// TODO Auto-generated method stub
 
 
-		EtudiantService serv=new EtudiantService();
+		IEtudiantService serv=new EtudiantServicePremium();
 		try {
 			serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
 			 Journal j1 = new JournalDirect();
