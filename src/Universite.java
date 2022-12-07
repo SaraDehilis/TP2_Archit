@@ -1,5 +1,5 @@
 
-public class Universite {
+public class Universite implements IUniversite {
 
  private int i_univ; //identifiant unique de l'université
  private String nom;

@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant implements IEtudiant {
 
 		private int matricule;
 	    private String nom;
